@@ -397,6 +397,157 @@ pre { white-space: pre-wrap; word-break: break-all; }
 }
 .chain-placeholder { color: var(--muted); font-size: 11px; font-style: italic; }
 
+/* ── PII Observe tracker (all-green, no response) ────── */
+.pii-obs-tracker {
+  background: #0f1a0f; border-bottom: 1px solid #1c3a2a;
+  padding: 10px 14px; font-size: 11px; flex-shrink: 0;
+}
+.pii-obs-row {
+  display: flex; align-items: center; gap: 7px;
+  padding: 3px 0; border-bottom: 1px solid #141d14;
+}
+.pii-obs-allow {
+  margin-left: auto; flex-shrink: 0;
+  color: var(--allow); font-weight: 700; font-size: 11px;
+}
+.pii-obs-final {
+  padding-top: 6px; margin-top: 3px; font-size: 12px; font-weight: 600;
+  color: var(--block); border-top: 1px solid #3a1c1c;
+}
+
+/* ── Scenario B — WHAT THE AGENT SAW ─────────────────── */
+.b-saw-panel {
+  border-top: 1px solid var(--border); flex-shrink: 0;
+}
+.b-saw-header {
+  padding: 7px 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--muted); background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.b-saw-doc {
+  padding: 10px 14px; font-family: "SFMono-Regular", Consolas, monospace;
+  background: #080d10;
+}
+.b-saw-seg-label {
+  font-size: 9px; color: #2a3a4a; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.b-saw-text {
+  color: var(--muted); font-size: 11px; white-space: pre-wrap; margin-bottom: 8px;
+}
+.b-saw-injection-hidden {
+  color: #0c1016; /* invisible against near-black bg */
+  font-size: 11px; white-space: pre-wrap;
+}
+.b-saw-injection-visible {
+  background: #1e1600; border: 1px solid var(--flag);
+  border-radius: 4px; padding: 8px 10px; margin-top: 4px;
+}
+.b-saw-injection-visible .b-saw-injection-text {
+  color: var(--flag); font-size: 11px; white-space: pre-wrap;
+}
+.b-saw-injection-label {
+  font-size: 10px; font-weight: 700; color: var(--flag);
+  margin-bottom: 6px; letter-spacing: 0.3px;
+}
+
+/* ── Scenario B — Intent vs Outcome card ─────────────── */
+.b-intent-card {
+  margin-top: 14px; border: 1px solid var(--border);
+  border-radius: 8px; background: var(--surface); overflow: hidden;
+}
+.b-intent-header {
+  padding: 9px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--muted); background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.b-intent-inner {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch;
+}
+.b-intent-col { padding: 16px 20px; }
+.b-intent-col-right { background: #180d0d; }
+.b-intent-divider {
+  display: flex; align-items: center; padding: 0 14px;
+  color: #3a4a5a; font-size: 20px; font-weight: 200;
+  border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+}
+.b-intent-col-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+}
+.b-intent-col-label-right { color: var(--block); }
+.b-intent-field { display: flex; gap: 10px; margin-bottom: 7px; align-items: baseline; }
+.b-intent-key {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  color: var(--muted); width: 52px; flex-shrink: 0; font-size: 11px;
+}
+.b-intent-val {
+  font-family: "SFMono-Regular", Consolas, monospace; color: var(--text); font-size: 11px;
+}
+.b-intent-val-changed { color: var(--block); }
+.b-intent-redirect {
+  font-size: 10px; font-weight: 700; color: var(--block);
+}
+
+/* ── Scenario C — drift section ──────────────────────── */
+.c-drift-section {
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--surface); overflow: hidden; margin-bottom: 14px;
+}
+.c-section-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--muted); padding: 10px 14px 4px;
+}
+.c-drift-inner { display: grid; grid-template-columns: 1fr 1fr; }
+.c-sparkline-wrap {
+  padding: 4px 14px 12px; border-right: 1px solid var(--border);
+}
+.drift-sparkline { width: 100%; height: auto; display: block; overflow: visible; }
+.c-drift-table-wrap { padding: 4px 14px 12px; }
+.c-drift-tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+.c-drift-tbl thead th {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  color: #3a4a5a; padding: 5px 6px 4px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.c-drift-tbl tbody td {
+  padding: 5px 6px; border-bottom: 1px solid #1c2128; vertical-align: top;
+}
+.c-drift-tbl tbody tr:last-child td { border-bottom: none; }
+.dt-week { color: var(--muted); width: 24px; }
+.dt-empty { color: var(--muted); font-style: italic; text-align: center; padding: 16px; }
+.dtag {
+  display: inline-block; font-size: 10px; padding: 1px 5px; border-radius: 6px;
+  background: var(--surface2); border: 1px solid var(--border); color: var(--muted);
+  margin: 1px 2px 1px 0; white-space: nowrap;
+}
+.dtag-new      { border-color: var(--flag); color: var(--flag); background: #3a2a1022; }
+.dtag-approved { border-color: #263826; color: #3a5a3a; background: #1c3a2a22; }
+.dtag-alert    { color: var(--flag); font-weight: 600; }
+.muted-text    { color: #3a4a5a; }
+.status-aligned  { color: var(--allow); font-weight: 600; }
+.status-diverged { color: var(--block); font-weight: 600; }
+.status-alert    { color: var(--flag);  font-weight: 600; }
+
+/* ── Scenario C — alert callout ──────────────────────── */
+.c-alert-callout {
+  align-items: stretch;
+  background: #16100a; border: 1px solid var(--flag);
+  border-radius: 8px; margin-bottom: 14px; overflow: hidden;
+}
+.c-alert-accent { width: 4px; background: var(--flag); flex-shrink: 0; }
+.c-alert-text { padding: 14px 20px; }
+.c-alert-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.4px;
+  text-transform: uppercase; color: var(--flag); margin-bottom: 10px;
+}
+.c-alert-body { font-size: 12px; line-height: 1.75; color: var(--muted); }
+.c-alert-body p { margin-bottom: 3px; }
+.c-alert-body strong { color: var(--text); }
+.c-alert-stat {
+  margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--block);
+}
+
 /* ── Status bar ───────────────────────────────────────── */
 .status-bar {
   position: fixed; bottom: 0; left: 0; right: 0;
@@ -502,6 +653,10 @@ footer a { color: var(--muted); }
       <div class="pane-header">
         <span class="badge badge-observe">OBSERVE</span>
         <span class="pane-sub">What observability reports</span>
+      </div>
+      <div class="pii-obs-tracker" id="pii-obs-tracker-a">
+        <div class="tracker-label">PII FIELDS ACCUMULATED — UNDETECTED</div>
+        <div class="tracker-empty">Run the scenario to see accumulation</div>
       </div>
       <div class="event-feed" id="feed-a-observe"><div class="empty-state">Run the scenario to see events</div></div>
       <div class="verdict-row">
@@ -626,11 +781,13 @@ footer a { color: var(--muted); }
     <div class="pane">
       <div class="pane-header"><span class="badge badge-observe">OBSERVE</span><span class="pane-sub">What observability reports</span></div>
       <div class="event-feed" id="feed-b-observe"><div class="empty-state">Run the scenario to see events</div></div>
+      <div class="b-saw-panel" id="b-saw-observe" style="display:none"></div>
       <div class="verdict-row"><div class="verdict-label">Last decision</div><div class="verdict-box" id="verd-b-obs">—</div></div>
     </div>
     <div class="pane">
       <div class="pane-header"><span class="badge badge-govern">GOVERN</span><span class="pane-sub">What governance catches</span></div>
       <div class="event-feed" id="feed-b-govern"><div class="empty-state">Run the scenario to see events</div></div>
+      <div class="b-saw-panel" id="b-saw-govern" style="display:none"></div>
       <div class="verdict-row"><div class="verdict-label">Last decision</div><div class="verdict-box" id="verd-b-gov">—</div></div>
       <div class="trace-section">
         <button class="trace-toggle" onclick="toggleTrace('b')">▸ Decision Trace</button>
@@ -659,6 +816,7 @@ footer a { color: var(--muted); }
       </div>
     </div>
   </div>
+  <div class="b-intent-card" id="b-intent-card" style="display:none"></div>
 </div>
 
 <!-- ── Scenario C ──────────────────────────────────────── -->
@@ -716,6 +874,20 @@ footer a { color: var(--muted); }
     </div>
   </div>
 
+  <div class="c-alert-callout" id="c-alert-callout" style="display:none">
+    <div class="c-alert-accent"></div>
+    <div class="c-alert-text">
+      <div class="c-alert-title">The observability alert that fired in week 5</div>
+      <div class="c-alert-body">
+        <p><strong>Compared:</strong> send_webhook(attacker.io) vs Week 4 baseline</p>
+        <p>Week 4 baseline included: send_webhook(external) — already a violation</p>
+        <p>The alert caught a marginal change from an already-compromised baseline.</p>
+        <p>The original policy violation happened in Week 2 and was never flagged.</p>
+        <div class="c-alert-stat">3 weeks of unreported violations before the first alert.</div>
+      </div>
+    </div>
+  </div>
+
   <div class="counters-wrap">
     <div class="counters-side obs">
       <div class="counters-label obs">Observe</div>
@@ -728,6 +900,69 @@ footer a { color: var(--muted); }
       <div class="counter-pill cp-allow"><span>Allowed</span><span class="val" id="cnt-c-gov-allow">0</span></div>
       <div class="counter-pill cp-flag"><span>Flagged</span><span class="val" id="cnt-c-gov-flag">0</span></div>
       <div class="counter-pill cp-block"><span>Blocked</span><span class="val" id="cnt-c-gov-block">0</span></div>
+    </div>
+  </div>
+
+  <!-- Drift section: sparkline + live policy-vs-baseline table -->
+  <div class="c-drift-section">
+    <div class="c-drift-inner">
+      <div class="c-sparkline-wrap">
+        <div class="c-section-label">Drift from original policy</div>
+        <svg viewBox="0 0 420 135" class="drift-sparkline" xmlns="http://www.w3.org/2000/svg">
+          <!-- grid -->
+          <line x1="48" y1="82" x2="410" y2="82" stroke="#21262d" stroke-width="1"/>
+          <line x1="48" y1="65" x2="410" y2="65" stroke="#1c2128" stroke-width="0.5" stroke-dasharray="2,4"/>
+          <line x1="48" y1="48" x2="410" y2="48" stroke="#1c2128" stroke-width="0.5" stroke-dasharray="2,4"/>
+          <line x1="48" y1="31" x2="410" y2="31" stroke="#1c2128" stroke-width="0.5" stroke-dasharray="2,4"/>
+          <line x1="48" y1="14" x2="410" y2="14" stroke="#1c2128" stroke-width="0.5" stroke-dasharray="2,4"/>
+          <!-- y-axis -->
+          <line x1="48" y1="14" x2="48" y2="82" stroke="#30363d" stroke-width="1"/>
+          <!-- annotation drops -->
+          <line x1="138" y1="14" x2="138" y2="70" stroke="#58a6ff" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+          <line x1="408" y1="14" x2="408" y2="22" stroke="#f0883e" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+          <!-- data line -->
+          <polyline points="48,82 138,70 228,54 318,36 408,22" fill="none" stroke="#3d5066" stroke-width="2" stroke-linejoin="round"/>
+          <!-- dots -->
+          <circle cx="48"  cy="82" r="3.5" fill="#3fb950"/>
+          <circle cx="138" cy="70" r="4"   fill="#58a6ff"/>
+          <circle cx="228" cy="54" r="3.5" fill="#d29922"/>
+          <circle cx="318" cy="36" r="3.5" fill="#d29922"/>
+          <circle cx="408" cy="22" r="4.5" fill="#f0883e"/>
+          <!-- x labels -->
+          <text x="48"  y="96" text-anchor="middle" font-size="10" fill="#8b949e">W1</text>
+          <text x="138" y="96" text-anchor="middle" font-size="10" fill="#58a6ff">W2</text>
+          <text x="228" y="96" text-anchor="middle" font-size="10" fill="#8b949e">W3</text>
+          <text x="318" y="96" text-anchor="middle" font-size="10" fill="#8b949e">W4</text>
+          <text x="408" y="96" text-anchor="middle" font-size="10" fill="#f0883e">W5</text>
+          <!-- y labels -->
+          <text x="42" y="85" text-anchor="end" font-size="9" fill="#8b949e"> 0%</text>
+          <text x="42" y="26" text-anchor="end" font-size="9" fill="#8b949e">89%</text>
+          <!-- callout labels -->
+          <text x="138" y="11" text-anchor="middle" font-size="9" fill="#58a6ff">GOVERN: blocked ↑</text>
+          <text x="402" y="11" text-anchor="end"    font-size="9" fill="#f0883e">OBSERVE: alert ↑</text>
+          <!-- legend -->
+          <text x="48"  y="114" font-size="9" fill="#58a6ff">■</text>
+          <text x="56"  y="114" font-size="9" fill="#555e68">GOVERN blocked W2 — policy fixed at deployment</text>
+          <text x="48"  y="126" font-size="9" fill="#f0883e">■</text>
+          <text x="56"  y="126" font-size="9" fill="#555e68">OBSERVE alert W5 — W4 baseline already 67% drifted</text>
+        </svg>
+      </div>
+      <div class="c-drift-table-wrap">
+        <div class="c-section-label">Policy vs baseline — updates as scenario runs</div>
+        <table class="c-drift-tbl">
+          <thead>
+            <tr>
+              <th>WK</th>
+              <th>Observe baseline (shifting)</th>
+              <th>Govern policy (fixed)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="c-drift-tbody">
+            <tr><td colspan="4" class="dt-empty">Run the scenario to see drift</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
