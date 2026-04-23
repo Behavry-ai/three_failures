@@ -1,0 +1,57 @@
+# ── AI tool settings ──────────────────────────────────────
+.claude/
+.cursor/
+.windsurf/
+.copilot/
+.aider*
+.continue/
+.codeium/
+.tabnine/
+
+# ── Environment & secrets ─────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.secret
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+*.prof
+
+# ── SQLite ────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Docker ────────────────────────────────────────────────
+docker-compose.override.yml
+
+# ── macOS ─────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── Editors ───────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

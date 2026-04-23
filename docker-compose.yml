@@ -1,0 +1,55 @@
+services:
+  lab-proxy:
+    build: ./proxy
+    ports:
+      - "${PROXY_PORT:-8000}:8000"
+    environment:
+      - LAB_MODE=${LAB_MODE:-observe}
+      - DB_PATH=/data/lab.db
+      - TARGETS_URL=http://lab-targets:8001
+    volumes:
+      - lab-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  lab-targets:
+    build: ./targets
+    ports:
+      - "${TARGETS_PORT:-8001}:8001"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  lab-agents:
+    build: ./agents
+    ports:
+      - "${AGENTS_PORT:-8002}:8002"
+    environment:
+      - PROXY_URL=http://lab-proxy:8000
+    depends_on:
+      lab-proxy:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+
+  lab-ui:
+    build: ./ui
+    ports:
+      - "${UI_PORT:-3000}:3000"
+    depends_on:
+      - lab-proxy
+      - lab-agents
+
+volumes:
+  lab-data:
