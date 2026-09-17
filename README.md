@@ -174,3 +174,9 @@ Tests run against the live stack. Each test file targets a specific failure surf
 ## Credit
 
 Built by [Behavry](https://behavry.ai) as an educational resource. &nbsp;·&nbsp; [github.com/Behavry-ai/three_failures](https://github.com/Behavry-ai/three_failures)
+
+---
+
+## License
+
+Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
